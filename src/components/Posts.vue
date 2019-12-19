@@ -9,8 +9,22 @@ export default {
   name: 'Posts',
   data() {
     return {
+      posts : []
     };
   },
+  mounted() {
+   this.load();
+  },
+  methods : {
+    load() {
+      const url = 'https://www.reddit.com/r/rarepuppers/.json';
+      fetch(url)
+         .then(response => response.json())
+         .then((result) => {
+           console.log(result.data.children);
+         });
+    },
+  }
 };
 </script>
 
