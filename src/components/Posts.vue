@@ -1,6 +1,14 @@
  <template>
-  <div class="hello">
-     <h1>Posts</h1>
+  <div class="hello mt-3">
+      <ul class="list-unstyled">
+        <li v-for="post in posts" class="media">
+          <img class="mr-3" :src="post.data.thumbnail" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">List-based media object</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+          </div>
+        </li>
+      </ul>
   </div>
 </template>
 
@@ -9,11 +17,11 @@ export default {
   name: 'Posts',
   data() {
     return {
-      posts : []
+      posts : [],
     };
   },
   mounted() {
-   this.load();
+   this.load()
   },
   methods : {
     load() {
@@ -21,10 +29,10 @@ export default {
       fetch(url)
          .then(response => response.json())
          .then((result) => {
-           console.log(result.data.children);
+           this.posts = result.data.children;
          });
     },
-  }
+  },
 };
 </script>
 

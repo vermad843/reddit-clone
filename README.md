@@ -9,4 +9,10 @@ reddit clone :
 
 [x] npm run dev
 
+[x]fetching the data :
+
+[x] url = 'https://www.reddit.com/r/rarepuppers/.json'
+
+[x]using bootstrap : component/media list
+
 
